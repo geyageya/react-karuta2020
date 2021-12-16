@@ -1,5 +1,9 @@
 {
-  "name": "react-karuta2020",
+  "name": "my-app",
+  "engines": {
+    "node": "14.18.0",
+    "npm": "6.14.15"
+  },
   "version": "0.1.0",
   "private": true,
   "dependencies": {
