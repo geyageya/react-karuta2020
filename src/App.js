@@ -1,4 +1,4 @@
-import {useState, useEffect,useRef,useCallback} from "react";
+import {useState, useEffect,useRef} from "react";
 
 const App=()=> {
   
@@ -264,6 +264,217 @@ const resultScore = {
   fontSize: "24px",
 }
 
+
+const dataLists =
+[
+  {
+  id:1,
+  clue: "By the river, a brown tower stands alone.",
+  yomiku:"青タイルが 光るレンガの ミナレット",
+  answer: "../images/pictures/001_p.png",
+  read: "../sounds/en/001_en.mp3",
+  yomu: "../sounds/001_jp.mp3",
+  flag:"../images/flags/001_AFG_50.png",
+  subject:"Minaret of Jam, Afghanistan",
+  area: "asia"
+},
+{
+  id:2,
+  clue: "Not a pet. Cats live in the desert.",
+  yomiku:"砂漠に暮らす 足裏黒い 元気な猫",
+  answer: "../images/pictures/002_p.png",
+  read: "../sounds/en/002_en.mp3",
+  yomu: "../sounds/002_jp.mp3",
+  flag:"../images/flags/028_BRN_50.png",
+  subject:"Arabian Sand Cats, Bahrain",
+  area: "asia"
+},
+{
+  id:3,
+  clue: "Beat drums and carry paper animals in the New Year.",
+  yomiku:"新年に はりぼて担ぎ 太鼓打つ",
+  answer: "../images/pictures/003_p.png",
+  read: "../sounds/en/003_en.mp3",
+  yomu: "../sounds/003_jp.mp3",
+  flag:"../images/flags/015_BAN_50.png",
+  subject:"Pahela Baishakh (Bengali New Year), Bangladesh",
+  area: "asia"
+},
+{
+  id:4,
+  clue: "Dressed in traditional costume, the King and Queen look happy.",
+  yomiku:"国王に よりそう王妃 幸福の国",
+  answer: "../images/pictures/004_p.png",
+  read: "../sounds/en/004_en.mp3",
+  yomu: "../sounds/004_jp.mp3",
+  flag:"../images/flags/021_BHU_50.png",
+  subject:"A Happy Country,Bhutan",
+  area: "asia"
+},
+{id:5,
+  clue: "By the water, a white building with a gold roof",
+  yomiku:"水辺に映る ブルネイの誇り",
+  answer: "../images/pictures/005_p.png",
+  read: "../sounds/en/005_en.mp3",
+  yomu: "../sounds/005_jp.mp3",
+  hand: "../images/hand-5.png",
+  hand2:"../images/aite-5.png",
+  flag:"../images/flags/029_BRU_50.png",
+  subject:"Omar Ali Saifuddien Mosque, Brunei Darussalam",
+  area: "africa"
+},
+{id:6,
+  clue: "Put them in a pot, fry in oil and eat.",
+  yomiku:"鍋に入れ 油で揚げた クモ食べる",
+  answer: "../images/pictures/006_p.png",
+  read: "../sounds/en/006_en.mp3",
+  yomu: "../sounds/006_jp.mp3",
+  flag:"../images/flags/033_CAM_50.png",
+  subject:"Fried Spider, Cambodia",
+  area: "africa"
+},
+{id:7,
+  clue: "Fireworks in the night sky of a growing city",
+  yomiku:"101 街の夜空に 咲く花火",
+  answer: "../images/pictures/007_p.png",
+  read: "../sounds/en/007_en.mp3",
+  yomu: "../sounds/007_jp.mp3",
+  flag:"../images/flags/189_TPE_50.png",
+  subject:"Taipei 101 Tower, Chinese Taipei",
+  area: "africa"
+},
+{id:8,
+  clue: "Dance and smile together in yellow or pink costumes.",
+  yomiku:"",
+  answer: "../images/pictures/008_p.png",
+  read: "../sounds/en/008_en.mp3",
+  yomu: "../sounds/008_jp.mp3",
+  flag:"../images/flags/154_PRK_50.png",
+  subject:"Dancing Ceremony, Democratic People's Republic of Korea",
+  area: "africa"
+},
+{id:9,
+  clue: "Walk around with a long monster to the beat of drums.",
+  yomiku:"",
+  answer: "../images/pictures/009_p.png",
+  read: "../sounds/en/009_en.mp3",
+  yomu: "../sounds/009_jp.mp3",
+  flag:"../images/flags/082_HKG_50.png",
+  subject:"Tai Hang Fire Dragon Dance, Hong Kong, China",
+  area: "europe"
+},
+{id:10,
+  clue: "Temples and festivals around the wheel",
+  yomiku:"",
+  answer: "../images/pictures/010_p.png",
+  read: "../sounds/en/010_en.mp3",
+  yomu: "../sounds/010_jp.mp3",
+  flag:"../images/flags/086_IND_50.png",
+  subject:"Indian Beauty, India",
+  area: "europe"
+},
+{id:11,
+  clue: "Move arms and legs with a folding fan in hand.",
+  yomiku:"",
+  answer: "../images/pictures/011_p.png",
+  read: "../sounds/en/011_en.mp3",
+  yomu: "../sounds/011_jp.mp3",
+  flag:"../images/flags/085_INA_50.png",
+  subject:"Balinese Dance, Indonesia",
+  area: "europe"
+},
+{id:12,
+  clue: "Houses are crowded on top of the rocky mountain.",
+  yomiku:"",
+  answer: "../images/pictures/012_p.png",
+  read: "../sounds/en/012_en.mp3",
+  yomu: "../sounds/012_jp.mp3",
+  flag:"../images/flags/089_IRQ_50.png",
+  subject:"Amadiya (mountain top town), Iraq",
+  area: "europe"
+},
+{id:13,
+  clue: "In winter, get together and enjoy food and poems.",
+  yomiku:"",
+  answer: "../images/pictures/013_p.png",
+  read: "../sounds/en/013_en.mp3",
+  yomu: "../sounds/013_jp.mp3",
+  flag:"../images/flags/087_IRI_50.png",
+  subject:"Yalda Eve Ceremony, Islamic Republic of Iran",
+  area: "americas"
+},
+{id:14,
+  clue: "In the wind, a family of fish swims above the roof.",
+  yomiku:"",
+  answer: "../images/pictures/014_p.png",
+  read: "../sounds/en/014_en.mp3",
+  yomu: "../sounds/014_jp.mp3",
+  flag:"../images/flags/097_JPN_50.png",
+  subject:"Koinobori (carp streamer), Japan",
+  area: "americas"
+},
+{id:15,
+  clue: "Cut out a rocky mountain to build a town.",
+  yomiku:"",
+  answer: "../images/pictures/015_p.png",
+  read: "../sounds/en/015_en.mp3",
+  yomu: "../sounds/015_jp.mp3",
+  flag:"../images/flags/096_JOR_50.png",
+  subject:"Petra Ruins, Jordan",
+  area: "americas"
+},
+{id:16,
+  clue: "Ride horses and catch an animal to the goal.",
+  yomiku:"",
+  answer: "../images/pictures/016_p.png",
+  read: "../sounds/en/016_en.mp3",
+  yomu: "../sounds/016_jp.mp3",
+  flag:"../images/flags/098_KAZ_50.png",
+  subject:"Kokpar (horse game), Kazakhstan",
+  area: "americas"
+},
+{id:17,
+  clue: "Towers have blue and white lines, waiting for the rain.",
+  yomiku:"",
+  answer: "../images/pictures/017_p.png",
+  read: "../sounds/en/017_en.mp3",
+  yomu: "../sounds/017_jp.mp3",
+  flag:"../images/flags/105_KUW_50.png",
+  subject:"Kuwait Water Towers, Kuwait",
+  area: "oceania"
+},
+{id:18,
+  clue: "Snow mountains, and the brown tower on the land",
+  yomiku:"",
+  answer: "../images/pictures/018_p.png",
+  read: "../sounds/en/018_en.mp3",
+  yomu: "../sounds/018_jp.mp3",
+  flag:"../images/flags/100_KGZ_50.png",
+  subject:"Burana Tower, Kyrgyzstan",
+  area: "oceania"
+},
+{id:19,
+  clue: "Over the net, hit a ball with feet and head.",
+  yomiku:"",
+  answer: "../images/pictures/019_p.png",
+  read: "../sounds/en/019_en.mp3",
+  yomu: "../sounds/019_jp.mp3",
+  flag:"../images/flags/106_LAO_50.png",
+  subject:"Katow (kick volleyball), Lao People's Democratic Republic",
+  area: "oceania"
+},
+{id:20,
+  clue: "People believe God planted the trees here.",
+  yomiku:"",
+  answer: "../images/pictures/020_p.png",
+  read: "../sounds/en/020_en.mp3",
+  yomu: "../sounds/020_jp.mp3",
+  flag:"../images/flags/112_LIB_50.png",
+  subject:"The Cedars of God, Lebanon",
+  area: "oceania"
+},
+] 
+
 const koukaSounds = [
   "sounds/effects/siin.mp3",
   "sounds/effects/pan.mp3", 
@@ -276,7 +487,7 @@ const koukaSounds = [
 //------JavaScript--------------------------------------------------------------------------
 
  //■■■■■useState■■■■■
- const [basicLists,setBasicLists] = useState([]);    //読句用データ配列（使用札選出済）
+ const [basicLists,setBasicLists] = useState(dataLists);    //読句用データ配列（使用札選出済）
  const [karutaLists,setKarutaLists] = useState(basicLists);  //絵札用データ配列
  const [miniPictures, setMiniPictures] = useState([]);      //ミニ絵札データ配列
  const [miniPcPictures, setMiniPcPictures] = useState([]);  //ミニ絵札データ配列（PC)
@@ -297,11 +508,35 @@ const koukaSounds = [
  const [isPopup, setIsPopup] = useState(false);             //ポップアップの表示・非表示
  const [isResult, setIsResult] = useState(false);           //ゲーム結果の表示・非表示
 
-//■■■■■useEffect■■■■■ 
-  //APIデータ取得
-  useEffect =() => {
-    getApiLists();
-  }
+//■■■■■useEffect(APIなし）■■■■■ 
+
+//元データのシャッフル→札選出（札18枚）
+// useEffect = () => {
+//   shuffle(basicLists).splice(0,2)
+// };
+
+// useEffect = () => {
+//   //絵札のシャッフル（札18枚）
+//     const result = shuffle([...basicLists]);
+//     setKarutaLists(result)
+//   }
+
+//エリア別札選出→シャッフル(例：札４枚、エリア別にしなければ札１８枚）
+//  useEffect = () => {
+//     const asia= basicLists.filter(list => list.area==="asia");
+//     setBasicLists(asia);
+//     setKarutaLists(asia);
+//     const result = shuffle([...asia]);
+//     setBasicLists(result)
+//     const result2 = shuffle([...asia]);
+//     setKarutaLists(result2)
+//  };
+
+// //■■■■■useEffect (API)■■■■■ 
+//   //APIデータ取得
+//   useEffect =() => {
+//     getApiLists();
+//   }
 
     //「札を並べる」ボタンを押すーーーーーーーーーーー
   const placeKaruta = () => {
@@ -401,16 +636,16 @@ const koukaSounds = [
 
   //------関数--------------------------------------------------------------------------
   //APIデータを取得
-  const getApiLists = useCallback(async () => {
-    const res =await fetch("https://server-karuta2020.herokuapp.com/api/v1/karuta");
-    const json = await res.json();
-    setBasicLists(json);
-  },[]);
+  // const getApiLists = useCallback(async () => {
+  //   const res =await fetch("https://server-karuta2020.herokuapp.com/api/v1/karuta");
+  //   const json = await res.json();
+  //   setBasicLists(json);
+  // },[]);
 
    //読み句、絵札をセット（並べ替え、指定枚数選出）
   const setCards =() => {
-    shuffle(basicLists)
-    // shuffle(basicLists).splice(0,2)
+    // shuffle(basicLists)
+    shuffle(basicLists).splice(0,5)
     const result = shuffle([...basicLists]);
     setKarutaLists(result)
   };
@@ -621,40 +856,40 @@ const koukaSounds = [
 
   //--switch
 
-　let area;  
-  const areas = () => {
-    switch(area){
-      case 'asia':
+// 　let area;  
+//   const areas = () => {
+//     switch(area){
+//       case 'asia':
         
-        return(
-        <div>
-          <p>asia</p>
+//         return(
+//         <div>
+//           <p>asia</p>
          
-        </div>
-      )
+//         </div>
+//       )
       
-       case 'africa':
-         return(
-         <div>
-          <p>africa</p>
-         </div>
-      )
-      default:
-        return(
-        <div>
-          <p>default</p>
-        </div>
-      )
-    }
-  }
+//        case 'africa':
+//          return(
+//          <div>
+//           <p>africa</p>
+//          </div>
+//       )
+//       default:
+//         return(
+//         <div>
+//           <p>default</p>
+//         </div>
+//       )
+//     }
+//   }
 
   
 
 //------JSX------------------------------------------------------------------------------
   return (
     <div>
-      <button onClick={()=> areas()}>アジア</button>
-        {areas()}
+      {/* <button onClick={()=> areas()}>アジア</button>
+        {areas()} */}
     <header style={header}>
       <h1 style={title}>世界200ケ国かるた</h1>
       {isPlaced ?
@@ -700,8 +935,8 @@ const koukaSounds = [
                   ):( 
                   <img alt ="" style={efuda} src={answer} onClick={() =>efudaClick(id)} />
                   )}
-                  <img  alt ="player hand" style={handCss}  src={hand} />
-                  <img  alt ="hand by pc" style={handPcCss}   src={handPc} /> 
+                  <img  alt ="" style={handCss}  src={hand} />
+                  <img  alt ="" style={handPcCss}   src={handPc} /> 
               </li> 
                 )
           })}
